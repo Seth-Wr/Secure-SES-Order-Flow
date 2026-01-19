@@ -1,0 +1,108 @@
+{
+  "Name": "PLACEHOLDER_WEB_ACL_NAME",
+  "Id": "00000000-0000-0000-0000-000000000000",
+  "ARN": "arn:aws:wafv2:us-east-1:123456789012:global/webacl/PLACEHOLDER_WEB_ACL_NAME/00000000-0000-0000-0000-000000000000",
+  "DefaultAction": {
+    "Allow": {}
+  },
+  "Description": "Cleaned WAF Configuration Template",
+  "Rules": [
+    {
+      "Name": "AWS-AWSManagedRulesAmazonIpReputationList",
+      "Priority": 0,
+      "Statement": {
+        "ManagedRuleGroupStatement": {
+          "VendorName": "AWS",
+          "Name": "AWSManagedRulesAmazonIpReputationList"
+        }
+      },
+      "OverrideAction": {
+        "Count": {}
+      },
+      "VisibilityConfig": {
+        "SampledRequestsEnabled": true,
+        "CloudWatchMetricsEnabled": true,
+        "MetricName": "ManagedRule-IPReputation"
+      }
+    },
+    {
+      "Name": "AWS-AWSManagedRulesCommonRuleSet",
+      "Priority": 1,
+      "Statement": {
+        "ManagedRuleGroupStatement": {
+          "VendorName": "AWS",
+          "Name": "AWSManagedRulesCommonRuleSet"
+        }
+      },
+      "OverrideAction": {
+        "Count": {}
+      },
+      "VisibilityConfig": {
+        "SampledRequestsEnabled": true,
+        "CloudWatchMetricsEnabled": true,
+        "MetricName": "ManagedRule-CommonRuleSet"
+      }
+    },
+    {
+      "Name": "AWS-AWSManagedRulesKnownBadInputsRuleSet",
+      "Priority": 2,
+      "Statement": {
+        "ManagedRuleGroupStatement": {
+          "VendorName": "AWS",
+          "Name": "AWSManagedRulesKnownBadInputsRuleSet"
+        }
+      },
+      "OverrideAction": {
+        "Count": {}
+      },
+      "VisibilityConfig": {
+        "SampledRequestsEnabled": true,
+        "CloudWatchMetricsEnabled": true,
+        "MetricName": "ManagedRule-KnownBadInputs"
+      }
+    },
+    {
+      "Name": "RATE-LIMIT",
+      "Priority": 3,
+      "Statement": {
+        "RateBasedStatement": {
+          "Limit": 300,
+          "EvaluationWindowSec": 300,
+          "AggregateKeyType": "IP"
+        }
+      },
+      "Action": {
+        "Block": {}
+      },
+      "VisibilityConfig": {
+        "SampledRequestsEnabled": true,
+        "CloudWatchMetricsEnabled": true,
+        "MetricName": "CustomRule-RateLimit"
+      }
+    },
+    {
+      "Name": "US-ONLY",
+      "Priority": 4,
+      "Statement": {
+        "NotStatement": {
+          "Statement": {
+            "GeoMatchStatement": {
+              "CountryCodes": [
+                "US"
+              ]
+            }
+          }
+        }
+      },
+      "Action": {
+        "Block": {}
+      },
+      "VisibilityConfig": {
+        "SampledRequestsEnabled": true,
+        "CloudWatchMetricsEnabled": true,
+        "MetricName": "CustomRule-GeoBlockNonUS"
+      }
+    }
+  ],
+  "VisibilityConfig": {
+    "SampledRequestsEnabled": true,
