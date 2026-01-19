@@ -37,14 +37,23 @@ Disposable Email Filtering: Cross-references the user's email against a list of 
 CloudWatch Alarms: Real-time monitoring for Bounce Rates and Complaint Rates, with automated alerts to ensure the SES production account remains in good standing.
 
 🚀 Technical Stack
+
 Component	Technology
+
 Backend	Python, FastAPI
+
 Frontend	Vanilla JS, HTML5, CSS3
+
 Compute	AWS Lambda
+
 Content Delivery	Amazon CloudFront (OAC Secured)
+
 Storage	Amazon S3 & LocalStorage (State management)
+
 Email	Amazon SES (Production Mode)
+
 Security	AWS WAF, Cloudflare CAPTCHA, SSL/TLS
+
 📩 Fulfillment Workflow
 Validation: The system verifies the Cloudflare token and ensures the honeypot field is empty.
 
