@@ -1,0 +1,7 @@
+aws lambda add-permission \
+--statement-id "AllowCloudFrontServicePrincipal" \
+--action "lambda:InvokeFunctionUrl" \
+--principal "cloudfront.amazonaws.com" \
+--source-arn "arn:aws:cloudfront::<AWS_ACCOUNT_ID>:distribution/<YOUR_DISTRIBUTION_ID>" \
+--region "us-east-1" \
+--function-name <YOUR_FUNCTION_NAME>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./order.css">
+    <title>Nuf Juice</title>
+</head>
+<body>
+    <main>
+    <nav class="navbar">
+        <div class="nav-content">
+            <div class="ads">
+                <div class="ad-1">
+                    <p>Local Delivery in Charlotte 8am - 8pm</p>
+                </div>
+                <div class="ad-2">
+                    <p>New Drink Jamaican Sorrel In Stock</p>
+                </div>
+            </div>
+            <div class="shopping-bag-box">
+                <a href="/order">
+                    <img class="shopping-bag"src="./img/shopping-bag.svg" alt="">
+                    <span class="shopping-bag-qty"></span>
+                </a>
+            </div>
+        </div>
+        
+    </nav>
+    <div class="hero">
+        <h3>Currently only accepting orders in the Charlotte 8am-8pm mon-sat we will be launching national shipping this Winter!</h3>
+    </div>
+    <div class="order">
+        <h3>My Order</h3>
+  
+    </div>
+  
+<div class="checkout">
+    <div class="number">
+        <input  type="text" class="number-input" placeholder="Phone Number">
+        
+    </div>
+   
+    <div class="email">
+        <input  type="text" class="email-input" placeholder="Email">
+
+    </div>
+  <div class="verification-code">
+    <input 
+        type="text" 
+        class="verification-input" 
+        autocomplete="off">
+</div>
+  
+
+    <div class="shipping">
+        <input type="text" class="shipping-input" placeholder="Shipping Address">
+       
+    </div>
+   
+    <div class="apt-num">
+        <input type="text" class="apt-num-input" placeholder="Apt/Suite optional">
+    </div>
+    <div class="cf-turnstile" data-sitekey="0x4AAAAAACNS031EZdiprqtu">
+    </div>
+    <div class="msg-wrapper">
+    <ul class="shipping-msg">
+        <li>Local Delivery Only</li>
+        <li>Zelle, CashApp, Cash</li>
+        <li>Payment on Delivery</li>
+    </ul>
+    </div>
+    <div class="total">
+        <span class="total-qty">0 Items</span>
+        <span class="total-price">Total Price <span class="checkout-price">$0.00</span></span>
+    </div>
+    <div class="checkout-btn-box">
+        <button class="checkout-btn">Place Order</button>
+    </div>
+    <p class="error-msg"></p>
+</div>
+<div class="loader-container" id="loader">
+    <div class="loader"></div>
+    </div>
+<div class="push"></div>
+</main>
+<footer class="footer">
+    <ul>
+        <li><a href="/">Home</a> </li>
+        <li> Hours of Operation <br> Mon-Sat 8am-8pm</li>
+        <li><a href="mailto:SethWrighttech@gmail.com">Support</a> </li>
+    
+    </ul>
+  
+</footer>
+<script
+  src="https://challenges.cloudflare.com/turnstile/v0/api.js"
+  async
+  defer
+></script>
+<script src="./order.js"></script>
+</body>
+</html>

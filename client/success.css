@@ -1,0 +1,284 @@
+body {
+    margin: 0;
+    background-color: rgba(251, 250, 247, 1);
+    font-family: 'Times New Roman', Times, serif;
+    overflow-x: hidden;
+}
+
+.navbar {
+    overflow: hidden;
+    display: flex;
+    background-color: #fff;
+    box-shadow: 0 0 5px 0 rgba(0,0,0, .1);
+    position: sticky;
+    top: 0;
+    z-index: 29;
+    height: 40px;
+}
+
+.nav-content {
+    width: 100%;
+    padding: 12px 24px;
+    text-align: center;
+}
+
+.nav-content a {
+    color: #000;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.success-container {
+    min-height: calc(100vh - 240px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+}
+
+.success-card {
+    background-color: #fff;
+    border-radius: 24px;
+    box-shadow: 0 0 5px 0 rgba(0,0,0, .1);
+    max-width: 600px;
+    width: 100%;
+    padding: 40px 24px;
+    text-align: center;
+    animation: slideUp 0.6s ease-out;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.checkmark-circle {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: #854858;
+    margin: 0 auto 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: scaleIn 0.5s ease-out 0.2s both;
+}
+
+@keyframes scaleIn {
+    from {
+        transform: scale(0);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+
+.checkmark {
+    width: 40px;
+    height: 40px;
+    stroke: #fff;
+    stroke-width: 3;
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    animation: drawCheck 0.5s ease-out 0.4s both;
+}
+
+@keyframes drawCheck {
+    from {
+        stroke-dasharray: 0, 100;
+    }
+    to {
+        stroke-dasharray: 100, 0;
+    }
+}
+
+.success-title {
+    font-size: 32px;
+    margin: 0 0 16px 0;
+    color: #854858;
+    font-weight: 600;
+}
+
+.success-subtitle {
+    font-size: 18px;
+    color: #666;
+    margin: 0 0 32px 0;
+}
+
+.order-id-box {
+    background-color: #f5f5f5;
+    border-radius: 12px;
+    padding: 20px;
+    margin: 24px 0;
+}
+
+.order-id-label {
+    font-size: 14px;
+    color: #666;
+    margin: 0 0 8px 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.order-id {
+    font-size: 24px;
+    font-weight: 700;
+    color: #000;
+    margin: 0;
+    letter-spacing: 2px;
+}
+
+.info-box {
+    background-color: #faf5f6;
+    border: 1px solid #e8d5da;
+    border-radius: 12px;
+    padding: 24px;
+    margin: 24px 0;
+    text-align: left;
+}
+
+.info-box h3 {
+    margin: 0 0 16px 0;
+    font-size: 20px;
+    color: #854858;
+}
+
+.info-box ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.info-box li {
+    padding: 8px 0;
+    color: #333;
+    font-size: 16px;
+    position: relative;
+    padding-left: 24px;
+}
+
+.info-box li:before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    font-weight: 700;
+    color: #854858;
+}
+
+.button-group {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 32px;
+}
+
+.btn {
+    padding: 16px 32px;
+    border-radius: 24px;
+    font-size: 16px;
+    font-weight: 700;
+    text-decoration: none;
+    display: inline-block;
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+    border: none;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.btn:active {
+    transform: scale(0.98);
+}
+
+.btn-primary {
+    background-color: #000;
+    color: #fff;
+}
+
+.btn-primary:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: #000;
+    border: 2px solid #000;
+}
+
+.btn-secondary:hover {
+    background-color: #f5f5f5;
+}
+
+.contact-info {
+    margin-top: 32px;
+    padding-top: 24px;
+    border-top: 1px solid #e0e0e0;
+    color: #666;
+    font-size: 14px;
+}
+
+.contact-info a {
+    color: #854858;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.footer {
+    text-align: center;
+    padding: 32px 20px;
+    background-color: #000;
+    opacity: .85;
+    color: #fff;
+    font-weight: 400;
+}
+
+.footer ul {
+    list-style: none;
+    padding: 8px;
+    margin: 0;
+}
+
+.footer ul li {
+    margin-bottom: 8px;
+}
+
+.footer ul li:last-child {
+    margin-bottom: 0;
+}
+
+.footer ul a {
+    color: #fff;
+    text-decoration: none;
+}
+
+@media(min-width: 500px) {
+    .success-title {
+        font-size: 42px;
+    }
+    
+    .success-card {
+        padding: 48px 40px;
+    }
+    
+    .button-group {
+        flex-direction: row;
+        justify-content: center;
+    }
+    
+    .checkmark-circle {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .checkmark {
+        width: 50px;
+        height: 50px;
+    }
+}

@@ -1,0 +1,473 @@
+body{
+    margin: 0;
+   background-color: rgba(251, 250, 247, 1);
+    font-family: 'Times New Roman', Times, serif;
+    overflow-x: hidden;
+}
+main{
+    padding: 0;
+    margin: 0;
+    min-height: 100vh;
+    margin-bottom: -100px;
+}
+.push{
+    height: 100px;
+}
+.navbar{
+    overflow: hidden;
+    display: flex;
+    background-color: #fff;
+    box-shadow: 0 0 5px 0 rgba(0,0,0, .1);
+    position: sticky;
+    top: 0;
+    z-index: 29;
+    height: 40px;
+}
+.nav-content{
+
+    width: 100%;
+    position: relative;
+}
+
+.shopping-bag-box{
+    position: absolute;
+    right: 24px;
+    top: 10px;
+}
+.shopping-bag-qty{
+    position: absolute;
+    right: -10px;
+    top: -8px;
+    background-color: #854858;
+    border-radius: 2px;
+    color: #fff;
+    display: none;
+    font-size: .75rem;
+    height: 14px;
+    line-height: 14px;
+    min-width: 14px;
+    padding: 0 2px;
+    text-align: center;
+}
+.shopping-bag-qty.active{
+    display: inline-block;
+}
+.menu-header{
+    text-align: center;
+    font-size: 32px;
+    line-height: 48px;
+    opacity: .8;
+    margin-top: 0;
+    padding-top: 32px;
+    margin-bottom: 16px;
+}
+
+
+
+.ad-1 p{
+    opacity: 0;
+    color: #000;
+    margin: 0;
+    padding: 12px;
+    font-weight: 400;
+    animation: ad-1 15s infinite; 
+    font-size: 13px;
+}
+.ad-2 p{
+    font-size: 13px;
+    opacity: 0;
+    padding: 12px;
+    color: #000;
+    margin: 0;
+    font-weight: 400;
+    overflow: hidden;
+    position: absolute;
+    top: 0;   
+    animation: ad-2 15s infinite; 
+}
+@keyframes ad-1 {
+    0% { opacity: 0;}
+    25%{ opacity: 1;}
+    60% {opacity: 1;}
+    70% {opacity: 0;}
+}
+@keyframes ad-2{
+    70%{opacity: 0;}
+    75%{opacity: 1;}
+    95%{opacity: 1;}
+    100%{opacity: 0;}
+}
+@keyframes ad-3 {
+    0% { opacity: 0;}
+    10%{ opacity: 1;}
+    20% {opacity: 1;}
+    30% {opacity: 0;}
+}
+@keyframes ad-4{
+    30%{opacity: 0;}
+    40%{opacity: 1;}
+    90%{opacity: 1;}
+    100%{opacity: 0;}
+}
+
+
+
+
+.hero-img h2{
+    opacity: 0;
+   color: #000;
+   margin: 0;
+   padding: 16px;
+   padding-top: 48px;
+   font-size: 32px;
+   animation: ad-3 10s infinite;
+
+}
+
+.hero-img-slide img{
+        position: absolute;
+    right: 8px;
+    top: 72px;
+    object-fit: scale-down;
+    height: 120px;
+    width: 120px;
+}
+.hero-img-slide{
+    opacity: 0;
+    position: absolute;
+    top: 24px;
+    width: 100%;
+    animation: ad-4 10s infinite;
+    background-color: #fff;
+    height: 200px;
+
+}
+.hero-img-slide h3{
+   
+    font-size: 45px;
+  
+}
+.hero-img-slide h3, p{
+    margin: 0;
+}
+.hero-img-slide p{
+    font-size: 20px;
+    text-align: left;
+    margin-top: 24px;
+    padding-left: 24px;
+    padding-right: 100px;
+
+}
+
+.hero-img{
+    position: relative;
+    height: 280px;
+    text-align: center;
+    background-color: #fff;
+  
+   border-bottom: 2px solid #000;
+}
+.about-us-wrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+}
+.about-us{
+    margin: 24px;
+    text-align: center;
+}
+.about-us-header{
+    font-size: 40px;
+    
+    width: 100%;
+   
+}
+.about-us-text{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+.about-us-text p{
+    text-align: center;
+    padding-left: 8px;
+    padding-right: 8px; 
+    font-size: 20px;
+    max-width: 600px;
+    
+}
+
+.product-card-wrapper{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    background: transparent;
+}
+.menu{
+    display: flex;
+    justify-content: center;
+   flex-direction: column;
+     
+}    
+.product-card{
+    display: flex;
+    justify-content: center;
+    margin: 24px;
+    margin-top: 16px;
+    background-color: #fff;
+    flex-direction: column;
+    box-shadow: 0 0 5px 0 rgba(0,0,0, .1);
+    border-radius: 24px;
+    width: 271px;
+
+}
+.product-name{
+    padding-left: 16px;
+    padding-right: 16px;
+    margin: 0;
+    text-align: center;
+    font-size: 24px;
+    
+}
+.price{
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+    margin: 8px;
+    margin-bottom: 0;
+}
+.product-text p{
+    text-align: center;
+    margin-top: 8px;
+    padding-left: 24px;
+    padding-right: 24px;
+    opacity: .7;
+    margin-bottom: 8px;
+}
+.img-box img{
+    object-fit: scale-down;
+    height: 120px;
+    width: 120px;
+}
+.img-box{
+    display: flex;
+    justify-content: center;
+    padding: 24px;
+}
+.order-btn{
+    width: 120px;
+    height: 40px;
+ border-radius: 24px; 
+ background-color: #000;  
+ font-weight: 700;
+ color: #fff;
+ font-size: 16px;
+ 
+}
+
+.button-box{
+    display: flex;
+    justify-content: center;
+    padding-bottom: 24px;
+}
+.toast-container{
+    display: none;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: transparent; 
+    z-index: 28; /* Ensure loader is on top but nav still useable*/
+}
+.toast-container.active{
+    display: flex;
+}
+.toast-msg{
+    text-align: center;
+    min-height: 20px;
+    opacity: .5;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    width: 250px;
+    padding: 16px;
+    background-color: #444; 
+    border: 1px solid #222;
+    color: #fff;
+
+}
+
+.footer{
+    text-align: center;
+   height: 100px;
+    background-color: #000;
+    opacity: .85;
+    color: #fff;
+    font-weight: 400;
+}
+.footer ul{
+    list-style: none;
+    padding: 8px;
+    padding-bottom: 0;
+    margin: 0;
+}
+
+.footer ul li{
+    margin-bottom: 8px;
+}
+.footer ul li:last-child{
+    margin-bottom: 0;
+}
+.footer ul a{
+    color: #fff;
+    text-decoration: none;
+}
+@media(min-width: 500px){
+    .ad-1 p{
+        text-align: center;
+       
+        width: 100%;
+    }
+    .ad-2 p{
+        text-align: center;
+        
+        width: 100%;
+    }
+    .hero-img h2{
+        font-size: 50px;
+        padding-top: 16px;
+    }
+    .hero-img-slide p{
+        text-align: center;
+        padding: 0;
+    }
+    .about-us-text p{
+      
+        padding-left: 24px;
+        padding-right: 24px; 
+     
+    }
+    .product-card{
+        width: 360px;
+    }
+}
+@media(min-width: 790px){
+
+    .hero-img h2{
+    
+       margin: 0;
+       padding-top: 30px;
+       font-size: 60px;
+      
+    
+    }
+    
+    .hero-img-slide img{
+            
+        right: 32px;
+        top: 32px;
+        
+        height: 150px;
+        width: 150px;
+    }
+    .hero-img-slide{
+      
+        top: 40px;
+        
+     
+        
+    
+    }
+    .hero-img-slide h3{
+       
+        font-size: 65px;
+      
+    }
+    .hero-img-slide p{
+        text-align: center;
+        font-size: 25px;
+        padding: 0;
+        margin: 0;
+     
+        
+    }
+    .about-us-text p{
+      
+        padding-left: 88px;
+        padding-right: 88px; 
+     
+    }
+    .our-mission p{
+        padding-left: 88px;
+        padding-right: 88px; 
+    }
+    
+    
+    }
+@media(min-width:1000px){
+    .hero-img-slide img{
+            
+        right: 88px;
+        top: 32px;
+        
+        height: 150px;
+        width: 150px;
+    }
+}
+@media (min-width: 1250px) {
+    .hero-img h2{
+        
+       padding-top: 64px;
+       font-size: 70px;
+       
+    
+    }
+    
+    .hero-img-slide img{
+            position: absolute;
+        right: 200px;
+        top: 12px;
+        object-fit: scale-down;
+        height: 200px;
+        width: 200px;
+    }
+    .hero-img-slide{
+    
+        top: 80px;
+        height: 280px;
+    
+    }
+    .hero-img-slide h3{
+       
+        font-size: 65px;
+      
+    }
+    .hero-img-slide p{
+        font-size: 35px;
+        padding: 0;
+        margin: 0;
+        text-align: center;
+    }
+    .hero-img{
+        position: relative;
+        height: 400px;
+        text-align: center;
+        background-color: #fff;
+       
+       border-bottom: 2px solid #000;
+   }
+   .about-us-text p{
+      
+    padding-left: 120px;
+    padding-right: 120px; 
+ 
+}
+.our-mission p{
+    padding-left: 120px;
+    padding-right: 120px; 
+    
+}
+}  
