@@ -17,7 +17,10 @@ import httpx
 import dns.resolver
 from disposable_email_domains import blocklist
 
-app = FastAPI(root_path="/api")
+app = FastAPI(root_path="/api",
+              docs_url=None,
+            redoc_url=None,
+            openapi_url=None)
 
 
 # ============================================
