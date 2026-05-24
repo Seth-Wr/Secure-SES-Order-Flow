@@ -1,7 +1,7 @@
 {
   "Name": "PLACEHOLDER_WEB_ACL_NAME",
   "Id": "00000000-0000-0000-0000-000000000000",
-  "ARN": "arn:aws:wafv2:us-east-1:123456789012:global/webacl/PLACEHOLDER_WEB_ACL_NAME/00000000-0000-0000-0000-000000000000",
+  "ARN": "arn:aws:wafv2::global/webacl/PLACEHOLDER_WEB_ACL_NAME/00000000-0000-0000-0000-000000000000",
   "DefaultAction": {
     "Allow": {}
   },
