@@ -14,7 +14,7 @@
             "Resource": "arn:aws:s3:::<YOUR_BUCKET_NAME>/*",
             "Condition": {
                 "StringEquals": {
-                    "AWS:SourceArn": "arn:aws:cloudfront::123456789012:distribution/<YOUR_DISTRIBUTION_ID>"
+                    "AWS:SourceArn": "arn:aws:cloudfront:distribution/<YOUR_DISTRIBUTION_ID>"
                 }
             }
         }
