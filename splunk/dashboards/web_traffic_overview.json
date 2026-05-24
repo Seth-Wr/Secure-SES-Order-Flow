@@ -1,0 +1,213 @@
+{
+  "title": "Web Traffic Overview",
+  "description": "",
+  "inputs": {
+    "input_global_trp": {
+      "options": {
+        "defaultValue": "-24h@h,now",
+        "token": "global_time"
+      },
+      "title": "Global Time Range",
+      "type": "input.timerange"
+    }
+  },
+  "defaults": {
+    "dataSources": {
+      "ds.search": {
+        "options": {
+          "queryParameters": {
+            "earliest": "$global_time.earliest$",
+            "latest": "$global_time.latest$"
+          }
+        }
+      },
+      "ds.spl2": {
+        "options": {
+          "queryParameters": {
+            "earliest": "$global_time.earliest$",
+            "latest": "$global_time.latest$"
+          }
+        }
+      }
+    },
+    "visualizations": {
+      "global": {
+        "showProgressBar": true
+      }
+    }
+  },
+  "visualizations": {
+    "viz_3vO7r2vO": {
+      "containerOptions": {},
+      "context": {
+        "noResultsText": "System Secure — Monitoring Honeypot Bot Trap (No active threats detected)..."
+      },
+      "dataSources": {
+        "primary": "ds_DYglnsLR"
+      },
+      "options": {
+        "description": "Real-time tracking of automated scripts interacting with hidden form fields",
+        "showRowNumbers": false,
+        "wrapCells": true,
+        "count": 3
+      },
+      "showLastUpdated": false,
+      "showProgressBar": true,
+      "type": "splunk.table",
+      "title": "Live Honeypot Monitor"
+    },
+    "viz_8f8xzdTY": {
+      "dataSources": {
+        "primary": "ds_ke7YTSMp"
+      },
+      "options": {
+        "center": [
+          41.49493649137884,
+          -96.82168749998931
+        ],
+        "layers": [
+          {
+            "bubbleSize": "> primary | frameWithoutSeriesNames('_geo_bounds_east', '_geo_bounds_west', '_geo_bounds_north', '_geo_bounds_south', 'latitude', 'longitude') | frameBySeriesTypes('number')",
+            "latitude": "> primary | seriesByName('latitude')",
+            "longitude": "> primary | seriesByName('longitude')",
+            "seriesColors": [
+              "#7b56db",
+              "#cb2196",
+              "#008c80",
+              "#9d6300",
+              "#f6540b",
+              "#ff969e",
+              "#99b100",
+              "#f4b649",
+              "#ae8cff",
+              "#8cbcff",
+              "#813193",
+              "#0051b5",
+              "#009ceb",
+              "#00cdaf",
+              "#00490a",
+              "#dd9900",
+              "#465d00",
+              "#ff677b",
+              "#ff6ace",
+              "#00689d"
+            ],
+            "type": "bubble"
+          }
+        ],
+        "showBaseLayer": true,
+        "zoom": 3
+      },
+      "title": "Geographic Traffic Origin by City",
+      "type": "splunk.map"
+    },
+    "viz_jfsbYa56": {
+      "dataSources": {
+        "primary": "ds_AnvHSkvL"
+      },
+      "options": {
+        "collapseThreshold": 0.01,
+        "labelDisplay": "off",
+        "seriesColorsByField": {
+          "200": "#118822",
+          "400": "#D93A3A",
+          "500": "#F27813"
+        }
+      },
+      "title": "HTTP Status Codes",
+      "type": "splunk.pie"
+    }
+  },
+  "dataSources": {
+    "ds_AnvHSkvL": {
+      "name": "HTTP Status Codes - Pie chart search",
+      "options": {
+        "query": "index=\"main\" source=\"/opt/splunk/s3_data/*\" | stats count by status",
+        "queryParameters": {
+          "earliest": "-24h@h",
+          "latest": "now",
+          "sampleRatio": 1
+        }
+      },
+      "type": "ds.search"
+    },
+    "ds_DYglnsLR": {
+      "name": "Fired_Honeypot_Alerts",
+      "options": {
+        "query": "index=_audit action=alert_fired ss_name=\"Honeypot Bot Trap Triggered\"\n| eval _time=strftime(trigger_time, \"%Y-%m-%d %H:%M:%S\")\n| rename ss_name as \"Security Event Triggered\"\n| table _time \"Security Event Triggered\"\n"
+      },
+      "type": "ds.search"
+    },
+    "ds_ke7YTSMp": {
+      "name": "Geographic Traffic Origin by City search",
+      "options": {
+        "query": "index=\"main\" source=\"/opt/splunk/s3_data/*\" | iplocation ip | geostats count by City",
+        "queryParameters": {
+          "earliest": "-24h@h",
+          "latest": "now",
+          "sampleRatio": 1
+        }
+      },
+      "type": "ds.search"
+    }
+  },
+  "layout": {
+    "globalInputs": [
+      "input_global_trp"
+    ],
+    "layoutDefinitions": {
+      "layout_1": {
+        "options": {
+          "height": 960,
+          "width": 1440
+        },
+        "structure": [
+          {
+            "item": "viz_jfsbYa56",
+            "position": {
+              "h": 271,
+              "w": 385,
+              "x": 0,
+              "y": 0
+            },
+            "type": "block"
+          },
+          {
+            "item": "viz_3vO7r2vO",
+            "position": {
+              "h": 316,
+              "w": 385,
+              "x": 0,
+              "y": 271
+            },
+            "type": "block"
+          },
+          {
+            "item": "viz_8f8xzdTY",
+            "position": {
+              "h": 587,
+              "w": 1055,
+              "x": 385,
+              "y": 0
+            },
+            "type": "block"
+          }
+        ],
+        "type": "grid"
+      }
+    },
+    "options": {},
+    "tabs": {
+      "items": [
+        {
+          "label": "New tab",
+          "layoutId": "layout_1"
+        }
+      ]
+    }
+  },
+  "applicationProperties": {
+    "hideEdit": false,
+    "hideExport": false
+  }
+}
