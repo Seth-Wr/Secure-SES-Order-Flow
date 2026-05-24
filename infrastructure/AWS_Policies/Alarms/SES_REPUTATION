@@ -5,7 +5,7 @@
         "AlarmDescription": "Alert when SES bounce rate reaches 5%. This provides an early warning before the AWS 10% suspension threshold.",
         "ActionsEnabled": true,
         "AlarmActions": [
-            "arn:aws:sns:us-east-1:<AWS_ACCOUNT_ID>:SES-Reputation-Alerts-Topic"
+            "arn:aws:sns:region:<AWS_ACCOUNT_ID>:SES-Reputation-Alerts-Topic"
         ],
         "MetricName": "Reputation.BounceRate",
         "Namespace": "AWS/SES",
