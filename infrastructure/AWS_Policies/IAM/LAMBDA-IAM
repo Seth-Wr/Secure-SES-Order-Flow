@@ -9,13 +9,24 @@
                 "ses:SendRawEmail"
             ],
             "Resource": [
-                "arn:aws:ses:us-east-1:<AWS_ACCOUNT_ID>:identity/nufjuice.com"
+                "arn:aws:ses:<REGION>:<AWS_ACCOUNT_ID>:identity/<YOUR_DOMAIN>"
             ],
             "Condition": {
                 "StringLike": {
-                    "ses:FromAddress": "*@nufjuice.com"
+                    "ses:FromAddress": "*<YOUR_DOMAIN>"
                 }
             }
+        },
+        {
+            "Sid": "S3LoggingAccess",
+            "Effect": "Allow",
+            "Action": [
+                "s3:PutObject"
+            ],
+            "Resource": [
+                "arn:aws:s3:::<YOUR_LOG_BUCKET>",
+                "arn:aws:s3:::<YOUR_LOG_BUCKET>/*"
+            ]
         }
     ]
 }
