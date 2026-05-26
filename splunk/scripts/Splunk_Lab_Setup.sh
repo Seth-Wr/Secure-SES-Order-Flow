@@ -78,7 +78,23 @@ sudo docker exec -u 0 -it splunk_server mkdir -p /opt/splunk/etc/apps/search/loc
 sudo docker cp /tmp/seth-wr/splunk/configs/inputs.conf splunk_server:/opt/splunk/etc/apps/search/local/inputs.conf
 echo "copied inputs.conf"
 
-sudo bash /tmp/seth-wr/splunk/scripts/alert_setup.sh
+sudo curl -k -u admin:Passw0rd https://localhost:8089/servicesNS/nobody/search/saved/searches \
+    -d name="Honeypot Bot Trap Triggered" \
+    -d description="Tracks malicious automated scripts populating hidden web form elements" \
+    --data-urlencode search='index="main" source="/opt/splunk/s3_data/*" "Bot filled hidden field" | iplocation ip | table _time ip City Country' \
+    -d is_scheduled=1 \
+    -d cron_schedule="*/5 * * * *" \
+    -d dispatch.earliest_time="-15m" \
+    -d dispatch.latest_time="now" \
+    -d alert_type="number of events" \
+    -d alert_comparator="greater than" \
+    -d alert_threshold=0 \
+    -d alert.digest_mode=0 \
+    -d alert.suppress=1 \
+    -d alert.suppress.fields="ip" \
+    -d alert.suppress.period="300s" \
+    -d actions="list" \
+    -d action.list.severity=5
 echo "Alert configured"
 
 sudo bash /tmp/seth-wr/splunk/scripts/dashboard_setup.sh
