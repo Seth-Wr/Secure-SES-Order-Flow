@@ -74,13 +74,15 @@ sudo docker cp /tmp/seth-wr/splunk/lookups/GeoIP2-City.mmdb splunk_server:/opt/s
 echo "Copied lookup file"
 
 # Copy inputs config into container
-sudo docker exec -u 0 -it splunk_server mkdir -p /opt/splunk/etc/apps/search/local
+sudo docker exec -u 0 splunk_server mkdir -p /opt/splunk/etc/apps/search/local
 sudo docker cp /tmp/seth-wr/splunk/configs/inputs.conf splunk_server:/opt/splunk/etc/apps/search/local/inputs.conf
 echo "copied inputs.conf"
 
 # Alert setup
 sudo bash /tmp/seth-wr/splunk/scripts/alert_setup.sh
+echo "Alert Created"
 
+# Dashboard setup
 sudo bash /tmp/seth-wr/splunk/scripts/dashboard_setup.sh
 echo "Dashboard created"
 
