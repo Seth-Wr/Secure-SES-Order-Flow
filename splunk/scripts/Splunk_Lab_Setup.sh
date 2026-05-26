@@ -79,7 +79,7 @@ sudo docker cp /tmp/seth-wr/splunk/configs/inputs.conf splunk_server:/opt/splunk
 echo "copied inputs.conf"
 
 # Alert setup
-sudo bash /tmp/seth-wr/splunk/scripts/alert_setup.sh
+sudo python3 /tmp/seth-wr/splunk/scripts/alert_setup.py
 echo "Alert Created"
 
 # Dashboard setup
