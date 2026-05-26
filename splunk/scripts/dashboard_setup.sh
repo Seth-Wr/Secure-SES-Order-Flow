@@ -1,9 +1,6 @@
-#!/bin/bash
-set -e  # crash on any error
-
 sudo curl -k -u admin:Passw0rd https://localhost:8089/servicesNS/admin/search/data/ui/views \
 --header 'Content-Type: application/x-www-form-urlencoded' \
---data-urlencode 'name=default' \
+--data-urlencode 'name=Web_Traffic_Overview' \
 --data-urlencode 'eai:data=
 <dashboard version="2" theme="dark">
    <label>Web Traffic Overview</label>

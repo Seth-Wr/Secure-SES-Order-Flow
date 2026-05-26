@@ -1,6 +1,3 @@
-#!/bin/bash
-set -e  # crash on any error
-
 sudo curl -k -u admin:Passw0rd https://localhost:8089/servicesNS/nobody/search/saved/searches \
     -d name="Honeypot Bot Trap Triggered" \
     -d description="Tracks malicious automated scripts populating hidden web form elements" \
@@ -18,4 +15,3 @@ sudo curl -k -u admin:Passw0rd https://localhost:8089/servicesNS/nobody/search/s
     -d alert.suppress.period="300s" \
     -d actions="list" \
     -d action.list.severity=5
-

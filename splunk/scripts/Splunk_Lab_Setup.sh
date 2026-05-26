@@ -47,12 +47,13 @@ shopt -s globstar
 /usr/bin/aws s3 sync s3://nufjuice-logs/ /home/ubuntu/s3_sync_dir
 EOF
 
-# Make it executable (fixed typo lbin -> bin)
+# Make it executable
 sudo chmod +x /usr/local/bin/s3_sync.sh
 
 # Setup cronjob as root
-
-(sudo crontab -l 2>/dev/null; echo "*/3 * * * * /usr/local/bin/s3_sync.sh >> /home/ubuntu/s3_cron.log 2>&1") | sudo crontab -
+echo "*/3 * * * * /usr/local/bin/s3_sync.sh >> /home/ubuntu/s3_cron.log 2>&1" > /tmp/root_cron
+sudo crontab /tmp/root_cron
+rm /tmp/root_cron
 
 # Set permissions
 sudo chown -R 41812:41812 /home/ubuntu/splunk_data
@@ -77,11 +78,30 @@ sudo docker exec -u 0 -it splunk_server mkdir -p /opt/splunk/etc/apps/search/loc
 sudo docker cp /tmp/seth-wr/splunk/configs/inputs.conf splunk_server:/opt/splunk/etc/apps/search/local/inputs.conf
 echo "copied inputs.conf"
 
-sudo /tmp/seth-wr/splunk/scripts/alert_setup.sh
+sudo bash /tmp/seth-wr/splunk/scripts/alert_setup.sh
 echo "Alert configured"
 
-sudo /tmp/seth-wr/splunk/scripts/dashboard_setup.sh
+sudo bash /tmp/seth-wr/splunk/scripts/dashboard_setup.sh
 echo "Dashboard created"
+
+# Make default
+# Ensure the directory path exists
+sudo docker exec -u 0 splunk_server mkdir -p /opt/splunk/etc/apps/search/local/data/ui/nav
+
+# Write the custom default navigation tracking Web_Traffic_Overview
+sudo tee /tmp/default.xml << 'EOF'
+<nav color="#111111" default="Web_Traffic_Overview">
+  <view name="Web_Traffic_Overview" default="true" />
+  <view name="search" />
+  <view name="datasets" />
+  <view name="reports" />
+  <view name="alerts" />
+  <view name="dashboards" />
+</nav>
+EOF
+
+# Copy it into the search app context inside the container
+sudo docker cp /tmp/default.xml splunk_server:/opt/splunk/etc/apps/search/local/data/ui/nav/default.xml
 
 # Dark mode 
 echo "Setting system theme preference to Dark Mode..."
