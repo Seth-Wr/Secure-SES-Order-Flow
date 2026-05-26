@@ -84,24 +84,6 @@ echo "Alert configured"
 sudo bash /tmp/seth-wr/splunk/scripts/dashboard_setup.sh
 echo "Dashboard created"
 
-# Make default
-# Ensure the directory path exists
-sudo docker exec -u 0 splunk_server mkdir -p /opt/splunk/etc/apps/search/local/data/ui/nav
-
-# Write the custom default navigation tracking Web_Traffic_Overview
-sudo tee /tmp/default.xml << 'EOF'
-<nav color="#111111" default="Web_Traffic_Overview">
-  <view name="Web_Traffic_Overview" default="true" />
-  <view name="search" />
-  <view name="datasets" />
-  <view name="reports" />
-  <view name="alerts" />
-  <view name="dashboards" />
-</nav>
-EOF
-
-# Copy it into the search app context inside the container
-sudo docker cp /tmp/default.xml splunk_server:/opt/splunk/etc/apps/search/local/data/ui/nav/default.xml
 
 # Dark mode 
 echo "Setting system theme preference to Dark Mode..."
