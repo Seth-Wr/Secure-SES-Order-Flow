@@ -1,6 +1,13 @@
 #!/bin/bash
 set -e
 
+# Wait for Splunk to be ready before doing anything else
+echo "Waiting for Splunk to start..."
+until curl -sk https://localhost:8089/services/server/info -u admin:Passw0rd > /dev/null 2>&1; do
+  sleep 5
+done
+echo "Splunk is up"
+
 sudo curl -k -u admin:Passw0rd https://localhost:8089/servicesNS/nobody/search/saved/searches \
     -d name="Honeypot Bot Trap Triggered" \
     -d description="Tracks malicious automated scripts populating hidden web form elements" \
