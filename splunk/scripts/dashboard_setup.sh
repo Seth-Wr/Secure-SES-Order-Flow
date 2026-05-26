@@ -1,3 +1,4 @@
+#!/bin/bash
 sudo curl -k -u admin:Passw0rd https://localhost:8089/servicesNS/admin/search/data/ui/views \
 --header 'Content-Type: application/x-www-form-urlencoded' \
 --data-urlencode 'name=Web_Traffic_Overview' \
@@ -222,3 +223,5 @@ sudo curl -k -u admin:Passw0rd https://localhost:8089/servicesNS/admin/search/da
 }
    ]]></meta>
 </dashboard>'
+sudo docker restart splunk_server
+echo "Web overview Dashboard configured"

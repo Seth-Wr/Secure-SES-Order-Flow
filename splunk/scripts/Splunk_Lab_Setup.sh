@@ -78,14 +78,6 @@ sudo docker exec -u 0 splunk_server mkdir -p /opt/splunk/etc/apps/search/local
 sudo docker cp /tmp/seth-wr/splunk/configs/inputs.conf splunk_server:/opt/splunk/etc/apps/search/local/inputs.conf
 echo "copied inputs.conf"
 
-# Alert setup
-sudo python3 /tmp/seth-wr/splunk/scripts/alert_setup.py
-echo "Alert Created"
-
-# Dashboard setup
-sudo bash /tmp/seth-wr/splunk/scripts/dashboard_setup.sh
-echo "Dashboard created"
-
 
 # Dark mode 
 echo "Setting system theme preference to Dark Mode..."
