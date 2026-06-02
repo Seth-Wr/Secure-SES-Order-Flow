@@ -6,19 +6,19 @@ provider "aws" {
 variable "my_ip" {
   type        = string
   description = "Your public IP address in CIDR notation (e.g., '192.0.2.1/32')"
-  default     = "76.36.35.49/32"
+  default     = "{Your public ip here}"
 }
 
 variable "existing_key_name" {
   type        = string
   description = "The name of the SSH key pair already created in AWS"
-  default     = "Chromebook SPLUNK LAB"
+  default     = "{Key pair name here}"
 }
 
 variable "existing_bucket_name" {
   type        = string
   description = "The name of your existing S3 bucket"
-  default     = "nufjuice-logs"
+  default     = "{Bucket name}"
 }
 
 # 2. VPC & Networking Setup
