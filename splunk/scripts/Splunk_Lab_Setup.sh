@@ -47,7 +47,7 @@ sudo ./aws/install
 sudo tee /usr/local/bin/s3_sync.sh << 'EOF'
 #!/bin/bash
 shopt -s globstar
-/usr/bin/aws s3 sync s3://nufjuice-logs/ /home/ubuntu/s3_sync_dir
+/usr/local/bin/aws s3 sync s3://nufjuice-logs/ /home/ubuntu/s3_sync_dir
 EOF
 
 # Make it executable
