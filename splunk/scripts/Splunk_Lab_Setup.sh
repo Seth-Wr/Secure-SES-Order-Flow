@@ -38,7 +38,10 @@ sudo docker run -d \
   splunk/splunk:latest
 
 # Install AWS CLI
-sudo apt install -y awscli
+sudo apt install -y unzip
+sudo curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+sudo unzip awscliv2.zip
+sudo ./aws/install
 
 # Create s3 sync script
 sudo tee /usr/local/bin/s3_sync.sh << 'EOF'
