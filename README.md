@@ -2,7 +2,7 @@
 
 A high-performance, security-first serverless order fulfillment engine integrated with a **decoupled, portable Splunk SIEM Security Operations Center (SOC)**. 
 
-This project demonstrates a **production-grade** order fulfillment engine deployed in a **live staging environment** to showcase real-world cloud defense and cost-effective architecture. Instead of scouring messy CloudWatch logs manually, this setup transforms log analysis into an automated, visualized pipeline. The entire infrastructure—from the web application to the ephemeral local monitoring environment—is fully automated to prevent running costly cloud resources 24/7.
+This project demonstrates a **production-grade** order fulfillment engine deployed in a **live staging environment** to showcase real-world cloud defense and cost-effective architecture. Instead of scouring messy CloudWatch logs manually, this setup transforms log analysis into an automated, visualized pipeline. The entire infrastructure—for Security operator center(SOC) is fully automated to prevent running costly cloud resources 24/7.
 
 🔗 **Live Demo Site:** [https://www.nufjuice.com](https://www.nufjuice.com)
 
@@ -45,7 +45,7 @@ The backend implements strict verification controls to block automated exploits 
 ### 📧 Email Reputation Management
 To maintain an unblemished sending reputation with Amazon SES, the system performs strict validation before dispatching transaction emails:
 * **DNS Verification:** Active MX and NS record lookups to ensure the target domain is legitimate and capable of receiving mail.
-* **Disposable Email Filtering:** Algorithmic validation against known temporary/burner email providers.
+* **Disposable Email Filtering:** Open source email list used to block known temporary/burner email providers.
 * **Reputation Alarms:** Real-time CloudWatch metrics tracking Bounce and Complaint rates, ensuring proactive management of the SES production account.
 
 ---
